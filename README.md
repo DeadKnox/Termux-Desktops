@@ -35,7 +35,7 @@ Tested on **OnePlus Nord 2 5G** · MediaTek Dimensity 1200-AI · Mali-G77 MC9 GP
 
 | Environment | Type | XFCE4 | VirGL | Status |
 |---|---|:---:|:---:|:---:|
-| [Termux Native](Documentation/termux-native-desktop.md) | Native | ✅ | ❌ | ✅ Done |
+| [Termux Native](Documentation/termux-native-desktop.md) | Native | ✅ | ❌¹ | ✅ Done |
 | [Debian Trixie](distros/debian/README.md) | proot | ✅ | ✅ | ✅ Done |
 | [Ubuntu 26.04](distros/ubuntu/README.md) | proot | ✅ | ✅ | ✅ Done |
 | [Kali Linux](distros/kali/README.md) | proot | ✅ | ✅ | ✅ Done |
@@ -48,7 +48,9 @@ Tested on **OnePlus Nord 2 5G** · MediaTek Dimensity 1200-AI · Mali-G77 MC9 GP
 
 ---
 
-## `> cat index.md`
+> ¹ **Native Termux & GPU acceleration:** VirGL doesn't work in Native Termux since it requires a proot container. However, Native Termux can still get hardware acceleration through other Mesa drivers — Zink + Turnip on Adreno GPUs, PanVK/Panfrost on some Mali devices. If none are available, it falls back to llvmpipe (software rendering). See [Hardware Acceleration](Documentation/hardware-acceleration.md) for details.
+
+---
 
 - 📦 [First Steps — Termux Base Setup](Documentation/first-steps.md)
 - ⚡ [Hardware Acceleration with VirGL](Documentation/hardware-acceleration.md)

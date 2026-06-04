@@ -4,7 +4,19 @@
 
 ---
 
-## What is VirGL?
+## GPU Acceleration Methods
+
+| Environment | Method | Works? |
+|---|---|:---:|
+| proot (any distro) + VirGL | `virgl_test_server_android` bridge | ✅ Yes |
+| Native Termux + VirGL | Not supported (no container layer) | ❌ No |
+| Native Termux + Zink/Turnip | Vulkan-based Mesa (Adreno GPUs) | ✅ Yes |
+| Native Termux + PanVK/Panfrost | Mesa Vulkan (some Mali devices) | ⚠️ Varies |
+| Native Termux + llvmpipe | Software rendering fallback | ⚠️ Fallback only |
+
+> **Note:** VirGL works by bridging Mesa inside the proot container to Android's GPU stack via `virgl_test_server_android`. Native Termux skips the container entirely, so VirGL doesn't apply — but modern devices can still get hardware acceleration through Vulkan-based Mesa drivers (Zink+Turnip for Adreno, Panfrost for some Mali).
+
+---
 
 VirGL (Virtual GL) is a technology that allows a guest Linux environment (your proot distro) to use the host Android GPU via a virtual 3D renderer. This gives you real OpenGL support inside your desktop, which means:
 
