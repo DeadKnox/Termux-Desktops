@@ -7,7 +7,7 @@
 
 ## Preview
 
-| Cursor AI + Discord Bot | fastfetch |
+| Cursor AI + VS Code | fastfetch |
 |---|---|
 | ![Cursor AI](screenshots/cursor-ai.jpg) | ![fastfetch](screenshots/fastfetch.jpg) |
 
