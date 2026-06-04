@@ -54,6 +54,7 @@ Tested on **OnePlus Nord 2 5G** · MediaTek Dimensity 1200-AI · Mali-G77 MC9 GP
 - ⚡ [Hardware Acceleration with VirGL](Documentation/hardware-acceleration.md)
 - 🖥️ [Termux Native Desktop](Documentation/termux-native-desktop.md)
 - 🐧 [How to install proot distros](Documentation/proot-install-guide.md)
+- ⚠️ [Known Issues & Fixes](Documentation/known-issues.md)
 
 ---
 
