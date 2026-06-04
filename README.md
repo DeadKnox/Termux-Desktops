@@ -38,7 +38,7 @@ Tested on **OnePlus Nord 2 5G** · MediaTek Dimensity 1200-AI · Mali-G77 MC9 GP
 | [Termux Native](Documentation/termux-native-desktop.md) | Native | ✅ | ❌ | ✅ Done |
 | [Debian Trixie](distros/debian/README.md) | proot | ✅ | ✅ | ✅ Done |
 | [Ubuntu 26.04](distros/ubuntu/README.md) | proot | ✅ | ✅ | ✅ Done |
-| [Kali Linux](distros/kali/README.md) | proot | ✅ | ✅ | 🔧 WIP |
+| [Kali Linux](distros/kali/README.md) | proot | ✅ | ✅ | ✅ Done |
 | [Arch Linux](distros/arch/README.md) | proot | ✅ | ✅ | 🔜 Soon |
 | [Alpine Linux](distros/alpine/README.md) | proot | ✅ | ✅ | 🔜 Soon |
 | [Fedora](distros/fedora/README.md) | proot | ✅ | ✅ | 🔜 Soon |
