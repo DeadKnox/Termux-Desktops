@@ -29,9 +29,11 @@ apt install sudo adduser wget curl git nano zsh -y
 ### Create a non-root user
 
 ```bash
-adduser ryuzaki
-usermod -aG sudo ryuzaki
+adduser YourUsername
+usermod -aG sudo YourUsername
 ```
+
+> Replace `YourUsername` with whatever username you want.
 
 ---
 
@@ -84,7 +86,7 @@ apt install build-essential python3 python3-pip nodejs npm -y
 
 # Zsh + Oh My Zsh
 apt install zsh -y
-chsh -s $(which zsh) ryuzaki
+chsh -s $(which zsh) YourUsername
 
 # As user ryuzaki:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -98,42 +100,26 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
 
 ## Termux Launch Script
 
-Save as `~/startubuntu.sh` in **Termux**:
+> ⚠️ Run these commands in **Termux**, not inside proot. Exit proot first with `exit`.
+
+**Download the script directly:**
 
 ```bash
-#!/bin/bash
-
-# Kill old sessions
-pkill -f termux-x11 2>/dev/null
-pkill -f pulseaudio 2>/dev/null
-pkill -f virgl 2>/dev/null
-sleep 1
-
-# Start services
-termux-x11 :0 &
-sleep 2
-pulseaudio --start \
-  --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" \
-  --exit-idle-time=-1
-virgl_test_server_android &
-sleep 1
-
-# Launch Ubuntu as user ryuzaki
-proot-distro login ubuntu --user ryuzaki -- bash -c "
-  export DISPLAY=:0
-  export PULSE_SERVER=127.0.0.1
-  export XDG_RUNTIME_DIR=/tmp
-  export GALLIUM_DRIVER=virpipe
-  export MESA_GL_VERSION_OVERRIDE=4.0
-  dbus-launch --exit-with-session startxfce4
-" &
-
-sleep 3
-am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
+wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startubuntu.sh -O ~/startubuntu.sh
+chmod +x ~/startubuntu.sh
 ```
 
+**Edit your username:**
+
 ```bash
-chmod +x ~/startubuntu.sh
+nano ~/startubuntu.sh
+# Replace YourUsername with your actual username
+# Save with Ctrl+X → Y → Enter
+```
+
+**Launch:**
+
+```bash
 bash ~/startubuntu.sh
 ```
 
