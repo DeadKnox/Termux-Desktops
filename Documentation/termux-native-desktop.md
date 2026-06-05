@@ -1,75 +1,112 @@
 # 🖥️ Termux Native Desktop
 
-> Run an XFCE4 desktop directly in Termux — no proot, no distro install.
+> Run a full XFCE4 desktop directly in Termux — no proot, no root required.  
+> Status: ✅ Complete · XFCE: **4.20**
 
 ---
 
-## What is Termux Native?
+## Preview
 
-Termux Native means running the desktop session directly within the Termux environment — no virtual Linux container. It's the lightest option:
+| fastfetch | AppStore + Thunar | Code OSS + OBS |
+|---|---|---|
+| ![fastfetch](../distros/termux-native/screenshots/fastfetch.jpg) | ![AppStore](../distros/termux-native/screenshots/appstore-thunar.jpg) | ![Code OSS + OBS](../distros/termux-native/screenshots/code-oss-obs.jpg) |
 
-| | Native | proot |
+**Specs (tested on):**
+- Device: OnePlus DN2101
+- CPU: MT6893 (8) @ 3.00 GHz
+- GPU: Mesa/X.org llvmpipe (software rendering)
+- OS: Android REL 13 aarch64
+- Kernel: Linux 4.19.191+
+- Shell: zsh 5.9 · DE: Xfce4 4.20 · WM: Xfwm4
+- Theme: Lavanda-Dark · Icons: Colloid-Purple
+
+---
+
+## Native vs proot — which should I use?
+
+| | Native Termux | proot Distro |
 |---|:---:|:---:|
-| Needs root | ❌ | ❌ |
+| Root required | ❌ | ❌ |
 | Full Linux distro | ❌ | ✅ |
-| Package manager | Termux `pkg` | distro's native |
-| VirGL support | ❌ | ✅ |
+| Package manager | `pkg` | `apt/dnf/pacman` |
+| VirGL GPU accel | ❌ | ✅ |
+| GPU (Adreno) | ✅ Zink/Turnip | ✅ VirGL |
+| GPU (Mali) | ⚠️ llvmpipe | ✅ VirGL |
 | Performance | 🚀 Fast | ⚡ Good |
+| Storage usage | 💚 Low | 🟡 Higher |
 
-> If you want full distro tools (apt, Kali tools, etc.) — use proot instead.
+> **Mali users:** Native Termux uses software rendering (llvmpipe). For hardware acceleration use a proot distro instead.  
+> **Adreno users:** Native Termux can use Zink+Turnip for hardware acceleration.
 
 ---
 
-## Install Required Packages
+## Step 1 — Required Packages
 
 ```bash
 pkg update && pkg upgrade -y
+
 pkg install x11-repo
 pkg install termux-x11-nightly
+pkg install tur-repo
 pkg install pulseaudio
-pkg install xfce4
-pkg install xfce4-terminal
-```
-
-Optional extras:
-
-```bash
-pkg install thunar mousepad ristretto xarchiver
+pkg install git wget
 ```
 
 ---
 
-## Launch Script
-
-Save this as `~/startdesktop.sh`:
+## Step 2 — Install XFCE4 Desktop
 
 ```bash
-#!/bin/bash
-
-# Kill old sessions
-pkill -f termux-x11 2>/dev/null
-pkill -f pulseaudio 2>/dev/null
-sleep 1
-
-# Start display + audio
-termux-x11 :0 &
-sleep 2
-pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
-
-# Launch desktop
-DISPLAY=:0 PULSE_SERVER=127.0.0.1 dbus-launch --exit-with-session startxfce4 &
-
-# Open Termux:X11
-am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
+pkg install xfce4 xfce4-terminal xfce4-goodies xorg-xhost -y
 ```
 
-Make it executable:
+> ⚠️ If you get a `cursor:arm64` conflict error, fix it with:
+> ```bash
+> sed -i 's/Status: deinstall ok half-installed/Status: deinstall ok config-files/' \
+>   /data/data/com.termux/files/usr/var/lib/dpkg/status
+> sed -i '/^Package: cursor$/,/^$/d' \
+>   /data/data/com.termux/files/usr/var/lib/dpkg/status
+> dpkg --configure -a
+> pkg install xfce4 xfce4-terminal xfce4-goodies xorg-xhost -y
+> ```
+
+---
+
+## Step 3 — Install Apps
+
+### Firefox
+```bash
+pkg install firefox -y
+```
+
+### Code OSS (VS Code open source)
+```bash
+pkg install code-oss -y
+```
+
+### Fastfetch
+```bash
+pkg install fastfetch -y
+```
+
+### OBS Studio
+```bash
+pkg install obs -y
+```
+
+---
+
+## Step 4 — Launch Script
+
+> Download directly from the repo:
 
 ```bash
+wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startdesktop.sh \
+  -O ~/startdesktop.sh
 chmod +x ~/startdesktop.sh
 ```
 
-Run it:
+Launch:
 
 ```bash
 bash ~/startdesktop.sh
@@ -77,11 +114,76 @@ bash ~/startdesktop.sh
 
 ---
 
-## Notes
+## Step 5 — Termux AppStore (Optional but Recommended)
 
-- Open **Termux:X11** app after running the script to see your desktop
-- Native Termux has limited app compatibility vs a full proot distro
-- For hardware-accelerated proot desktops → pick a distro from the [main index](../README.md)
+The Termux AppStore gives you a **graphical app installer** — browse and install apps without typing commands.
+
+### Install dependencies
+
+```bash
+pkg install python python-pip gtk3 gobject-introspection -y
+```
+
+### Download and install
+
+Go to: **https://github.com/sabamdarif/Termux-AppStore/releases**
+
+Download the latest `termux-appstore_*_aarch64.deb` then:
+
+```bash
+cd ~/storage/shared/Download
+dpkg -i termux-appstore_*.deb
+pkg install -f -y
+```
+
+### Launch from desktop terminal
+
+```bash
+DISPLAY=:0 termux-appstore &
+```
+
+> ℹ️ The warning `"Termux desktop config not found. Distro support disabled"` is normal — proot distro management is disabled but all native Termux apps work perfectly.
+
+---
+
+## Step 6 — Theming (Optional)
+
+### Install themes
+
+```bash
+pkg install papirus-icon-theme -y
+```
+
+For GTK themes, download from **https://www.xfce-look.org** and extract to `~/.themes/`
+
+For icon packs, extract to `~/.icons/`
+
+Apply via **XFCE4 → Applications → Settings → Appearance**
+
+---
+
+## GPU Notes
+
+| Device | GPU | Acceleration |
+|---|---|:---:|
+| Snapdragon (Adreno) | Adreno | ✅ Zink + Turnip |
+| Dimensity/Exynos (Mali) | Mali | ⚠️ llvmpipe (fallback) |
+| Other | Varies | ⚠️ Depends |
+
+For Mali devices wanting GPU acceleration → use a **proot distro** with VirGL instead.  
+See: [Hardware Acceleration Guide](hardware-acceleration.md)
+
+---
+
+## Troubleshooting
+
+| Issue | Fix |
+|---|---|
+| `startxfce4: command not found` | `pkg install xfce4 -y` |
+| `cursor:arm64` dpkg conflict | See Step 2 fix above |
+| Black screen | Make sure Termux:X11 app is open |
+| AppStore won't open | Run `DISPLAY=:0 termux-appstore &` from terminal |
+| llvmpipe instead of GPU | Expected on Mali — use proot for VirGL |
 
 ---
 
