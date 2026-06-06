@@ -1,6 +1,6 @@
 # ⚠️ Known Issues & Fixes
 
-> Common problems you might run into with proot desktops on Android — and how to fix them.
+> Common problems you might run into — and exactly how to fix them.
 
 ---
 
@@ -11,12 +11,9 @@
 sudo: The "no new privileges" flag is set, which prevents sudo from running as root.
 ```
 
-**Why it happens:**  
-Android's kernel sets a `no_new_privs` flag on all processes. This prevents privilege escalation — which is exactly what `sudo` tries to do. It's an OS-level restriction, not a bug in the distro.
+**Why:** Android's kernel sets a `no_new_privs` flag on all processes blocking privilege escalation. This is an OS-level restriction — not a bug.
 
-**Fix — use `su -` instead:**  
-From any desktop terminal:
-
+**Fix A — Use `su -` from the desktop terminal:**
 ```bash
 su -
 # enter root password
@@ -24,11 +21,49 @@ apt install whatever-you-need
 exit
 ```
 
-> ⚠️ Make sure you set a root password during setup with `passwd` while logged in as root.
+> Set a root password during setup: log in as root and run `passwd`
+
+**Fix B — Make sure you used our updated launch scripts** which use `su - YourUsername` instead of `--user`. Download the latest scripts:
+```bash
+wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startdebian.sh -O ~/startdebian.sh
+```
 
 ---
 
-## 2. `X server already running on display :0`
+## 2. `cursor:arm64` blocks package installation
+
+**Error:**
+```
+dpkg: error processing package cursor:arm64 (--remove):
+ cannot remove '/usr': Read-only file system
+```
+
+**Why:** Cursor AI was installed as an external `.deb` with Debian-style paths. Its removal script tries to delete `/usr` which is read-only in Termux.
+
+**Fix:**
+```bash
+# Stub the broken removal scripts
+echo '#!/bin/bash' > /data/data/com.termux/files/usr/var/lib/dpkg/info/cursor.prerm
+echo 'exit 0' >> /data/data/com.termux/files/usr/var/lib/dpkg/info/cursor.prerm
+echo '#!/bin/bash' > /data/data/com.termux/files/usr/var/lib/dpkg/info/cursor.postrm
+echo 'exit 0' >> /data/data/com.termux/files/usr/var/lib/dpkg/info/cursor.postrm
+
+# Fix dpkg status
+sed -i 's/Status: deinstall ok half-installed/Status: deinstall ok config-files/' \
+  /data/data/com.termux/files/usr/var/lib/dpkg/status
+
+# Remove cursor entry from dpkg database
+sed -i '/^Package: cursor$/,/^$/d' \
+  /data/data/com.termux/files/usr/var/lib/dpkg/status
+
+dpkg --configure -a
+```
+
+Then retry your `pkg install` command.
+
+---
+
+## 3. `X server already running on display :0`
 
 **Error:**
 ```
@@ -36,12 +71,9 @@ exit
 xfce4-session: Cannot open display: .
 ```
 
-**Why it happens:**  
-Another process (usually a previous desktop session) is already using display `:0`.
+**Why:** Another session is already using display `:0`, or a previous session didn't close cleanly.
 
-**Fix:**  
-Our launch scripts use `:1` to avoid this. If you still see it:
-
+**Fix:**
 ```bash
 pkill -f termux-x11
 pkill -f pulseaudio
@@ -50,43 +82,40 @@ sleep 2
 bash ~/startYOURDISTRO.sh
 ```
 
+Our scripts use `:1` by default to avoid this conflict.
+
 ---
 
-## 3. `llvmpipe` instead of virgl (no GPU acceleration)
+## 4. `llvmpipe` instead of virgl (no GPU acceleration)
 
-**Symptom:**  
+**Symptom:**
 ```bash
 glxinfo | grep "OpenGL renderer"
-# Shows: llvmpipe (LLVM ...) instead of virgl
+# Shows: llvmpipe instead of virgl
 ```
 
-Desktop feels laggy and slow.
+**Why:** `virgl_test_server_android` wasn't running before the desktop launched.
 
-**Why it happens:**  
-`virgl_test_server_android` wasn't running before the desktop launched.
-
-**Fix:**  
-Our launch scripts start it automatically. If you modified your script, make sure this line runs **before** `termux-x11`:
-
+**Fix:** Our scripts start it automatically. If you modified your script, make sure this runs **before** `termux-x11`:
 ```bash
 virgl_test_server_android &
 sleep 1
 ```
 
+> **Mali users on Native Termux:** llvmpipe is expected — VirGL only works in proot. Use a proot distro for hardware acceleration.
+
 ---
 
-## 4. `dpkg returned error code` on Kali Linux
+## 5. `dpkg returned error code` on Kali Linux
 
 **Error:**
 ```
 dpkg: error processing package systemd-standalone-sysusers
 ```
 
-**Why it happens:**  
-Kali's packages depend on `systemd` components that don't exist in proot.
+**Why:** Kali's packages depend on `systemd` which doesn't exist in proot.
 
-**Fix — stub the broken postinst scripts:**
-
+**Fix:**
 ```bash
 for pkg in systemd-standalone-sysusers udev dbus-system-bus-common polkitd; do
   script="/var/lib/dpkg/info/${pkg}.postinst"
@@ -100,15 +129,11 @@ dpkg --configure --force-all -a
 
 ---
 
-## 5. Black screen after launching
-
-**Why it happens:**  
-Termux:X11 app wasn't open, or the desktop took too long to start.
+## 6. Black screen after launching
 
 **Fix:**
-- Make sure the **Termux:X11 app** is installed and open on your device
+- Make sure **Termux:X11 app** is installed and open
 - Kill everything and relaunch:
-
 ```bash
 pkill -f termux-x11
 pkill -f pulseaudio
@@ -119,14 +144,9 @@ bash ~/startYOURDISTRO.sh
 
 ---
 
-## 6. Audio not working
+## 7. Audio not working
 
-**Why it happens:**  
-PulseAudio server didn't start or connect properly.
-
-**Fix:**  
-Kill and restart PulseAudio:
-
+**Fix:**
 ```bash
 pkill -f pulseaudio
 pulseaudio --start \
@@ -134,27 +154,22 @@ pulseaudio --start \
   --exit-idle-time=-1
 ```
 
-Make sure `PULSE_SERVER=127.0.0.1` is exported inside your proot session.
-
 ---
 
-## 7. Termux:X11 shows wrong resolution
+## 8. Wrong resolution in Termux:X11
 
-**Fix:**  
-Open the Termux:X11 app → tap the settings icon and set:
+Open Termux:X11 app → settings:
 
 | Setting | Value |
 |---|---|
 | Display resolution mode | `exact` |
-| Exact width | your screen width (e.g. `1280`) |
-| Exact height | your screen height (e.g. `720`) |
+| Exact width | your screen width |
+| Exact height | your screen height |
 | Fullscreen on device display | On |
 
 ---
 
-## 8. `proot-distro: command not found`
-
-**Fix:**
+## 9. `proot-distro: command not found`
 
 ```bash
 pkg install proot-distro

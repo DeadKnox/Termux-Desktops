@@ -1,4 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# ┌─────────────────────────────────────────┐
+# │  startdebian.sh — Debian Trixie proot   │
+# │  github.com/ryuV2/Termux-Desktops       │
+# └─────────────────────────────────────────┘
+# Usage: bash ~/startdebian.sh
 
 pkill -f termux-x11 2>/dev/null
 pkill -f pulseaudio 2>/dev/null
@@ -17,10 +22,7 @@ pulseaudio --start \
 
 am start --user 0 -n com.termux.x11/.MainActivity
 
-GALLIUM_DRIVER=virpipe \
-MESA_GL_VERSION_OVERRIDE=4.0 \
-DISPLAY=:1 \
-PULSE_SERVER=127.0.0.1 \
-XDG_RUNTIME_DIR=/tmp \
-proot-distro login debian --shared-tmp --user YourUsername -- \
-bash -c "export DISPLAY=:1 GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.0; dbus-launch --exit-with-session xfce4-session"
+export XDG_RUNTIME_DIR=${TMPDIR}
+
+proot-distro login debian --shared-tmp -- /bin/bash -c \
+  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=/tmp && su - YourUsername -c "env DISPLAY=:1 GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.0 dbus-launch --exit-with-session xfce4-session"'
