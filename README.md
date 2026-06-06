@@ -34,20 +34,18 @@ A collection of scripts and step-by-step guides to run **full XFCE4 Linux deskto
 
 ## `> ls -la environments/`
 
-| Environment | Type | XFCE4 | VirGL | Status |
-|---|---|:---:|:---:|:---:|
-| [Termux Native](Documentation/termux-native-desktop.md) | Native | ✅ | ❌ ¹ | ✅ Done |
-| [Debian Trixie](distros/debian/README.md) | proot | ✅ | ✅ | ✅ Done |
-| [Ubuntu 26.04](distros/ubuntu/README.md) | proot | ✅ | ✅ | ✅ Done |
-| [Kali Linux](distros/kali/README.md) | proot | ✅ | ✅ | ✅ Done |
-| [Arch Linux](distros/arch/README.md) | proot | ✅ | ✅ | 🔜 Soon |
-| [Alpine Linux](distros/alpine/README.md) | proot | ✅ | ✅ | 🔜 Soon |
-| [Fedora](distros/fedora/README.md) | proot | ✅ | ✅ | 🔜 Soon |
-| [Void Linux](distros/void/README.md) | proot | ✅ | ✅ | 🔜 Soon |
-| [Manjaro](distros/manjaro/README.md) | proot | ✅ | ✅ | 🔜 Soon |
-| [Artix Linux](distros/artix/README.md) | proot | ✅ | ✅ | 🔜 Soon |
-
-> ¹ Native Termux doesn't support VirGL. Adreno GPUs can use Zink+Turnip. Mali falls back to llvmpipe. See [Hardware Acceleration](Documentation/hardware-acceleration.md).
+| Environment | Type | XFCE4 | GPU Method | Status |
+|---|---|:---:|---|:---:|
+| [Termux Native](Documentation/termux-native-desktop.md) | Native | ✅ | llvmpipe / Zink+Turnip (Adreno) | ✅ Done |
+| [Debian Trixie](distros/debian/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
+| [Ubuntu 26.04](distros/ubuntu/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
+| [Kali Linux](distros/kali/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
+| [Arch Linux](distros/arch/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
+| [Alpine Linux](distros/alpine/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
+| [Fedora](distros/fedora/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
+| [Void Linux](distros/void/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
+| [Manjaro](distros/manjaro/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
+| [Artix Linux](distros/artix/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
 
 ---
 
