@@ -32,9 +32,17 @@
 
 ## Step 1 — Termux Packages
 
+**Mali / MediaTek / Exynos devices:**
 ```bash
 pkg update && pkg upgrade -y
-pkg install x11-repo termux-x11-nightly proot-distro pulseaudio virglrenderer
+pkg install x11-repo termux-x11-nightly proot-distro pulseaudio virglrenderer-android
+```
+
+**Snapdragon / Adreno devices:**
+```bash
+pkg update && pkg upgrade -y
+pkg install x11-repo termux-x11-nightly proot-distro pulseaudio \
+  mesa-zink vulkan-loader-android virglrenderer-mesa-zink
 ```
 
 ---
@@ -123,12 +131,28 @@ glxinfo | grep "OpenGL renderer"
 
 > ⚠️ Run in **Termux**, not inside proot. Exit proot first with `exit`.
 
-**Download:**
+### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startubuntu.sh -O ~/startubuntu.sh
+wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startubuntu.sh \
+  -O ~/startubuntu.sh
 chmod +x ~/startubuntu.sh
 ```
+
+### Snapdragon / Adreno (Zink + Turnip)
+
+```bash
+wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startubuntu-adreno.sh \
+  -O ~/startubuntu.sh
+chmod +x ~/startubuntu.sh
+```
+
+> **Adreno 6XX/7XX users (best performance):** Install the Turnip driver inside proot first:
+> ```bash
+> # Inside proot as root
+> wget https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v24.1.0/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+> dpkg -i mesa-vulkan-kgsl_*.deb
+> ```
 
 **Edit your username:**
 

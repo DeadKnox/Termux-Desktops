@@ -31,9 +31,17 @@
 
 ## Step 1 — Termux Packages
 
+**Mali / MediaTek / Exynos devices:**
 ```bash
 pkg update && pkg upgrade -y
-pkg install x11-repo termux-x11-nightly proot-distro pulseaudio virglrenderer
+pkg install x11-repo termux-x11-nightly proot-distro pulseaudio virglrenderer-android
+```
+
+**Snapdragon / Adreno devices:**
+```bash
+pkg update && pkg upgrade -y
+pkg install x11-repo termux-x11-nightly proot-distro pulseaudio \
+  mesa-zink vulkan-loader-android virglrenderer-mesa-zink
 ```
 
 ---
@@ -103,21 +111,37 @@ exit
 
 ## Step 6 — Launch Script
 
-> ⚠️ Run these commands in **Termux**, not inside proot. Exit proot first with `exit`.
+> ⚠️ Run in **Termux**, not inside proot. Exit proot first with `exit`.
 
-**Download the script directly:**
+### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startkali.sh -O ~/startkali.sh
+wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startkali.sh \
+  -O ~/startkali.sh
 chmod +x ~/startkali.sh
 ```
+
+### Snapdragon / Adreno (Zink + Turnip)
+
+```bash
+wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startkali-adreno.sh \
+  -O ~/startkali.sh
+chmod +x ~/startkali.sh
+```
+
+> **Adreno 6XX/7XX users (best performance):** Install the Turnip driver inside proot first:
+> ```bash
+> # Inside proot as root
+> wget https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v24.1.0/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+> dpkg -i mesa-vulkan-kgsl_*.deb
+> ```
 
 **Edit your username:**
 
 ```bash
 nano ~/startkali.sh
 # Replace YourUsername with your actual username
-# Save with Ctrl+X → Y → Enter
+# Save: Ctrl+X → Y → Enter
 ```
 
 **Launch:**
