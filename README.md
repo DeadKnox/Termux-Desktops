@@ -42,7 +42,7 @@ A collection of scripts and step-by-step guides to run **full XFCE4 Linux deskto
 | [Kali Linux](distros/kali/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
 | [Arch Linux](distros/arch/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
 | [Alpine Linux](distros/alpine/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
-| [Fedora](distros/fedora/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
+| [Fedora](distros/fedora/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
 | [Void Linux](distros/void/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
 | [Manjaro](distros/manjaro/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
 | [Artix Linux](distros/artix/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
