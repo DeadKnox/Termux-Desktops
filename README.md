@@ -41,7 +41,7 @@ A collection of scripts and step-by-step guides to run **full XFCE4 Linux deskto
 | [Ubuntu 26.04](distros/ubuntu/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
 | [Kali Linux](distros/kali/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
 | [Arch Linux](distros/arch/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
-| [Alpine Linux](distros/alpine/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
+| [Alpine Linux](distros/alpine/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
 | [Fedora](distros/fedora/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | ✅ Done |
 | [Void Linux](distros/void/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
 | [Manjaro](distros/manjaro/README.md) | proot | ✅ | VirGL (Mali) · Zink+Turnip (Adreno) | 🔜 Soon |
@@ -71,6 +71,7 @@ GPU acceleration benchmarks on **Mali-G77 MC9** via VirGL:
 Debian  Trixie   ──────────────────────── 62 pts  ✅
 Ubuntu  26.04    ──────────────────────── 56 pts  ✅
 Kali    rolling  ──────────────────────── 63 pts  ✅
+Alpine  v3.23    ──────────────────────── 67 pts  ✅
 ```
 
 ---
