@@ -138,7 +138,7 @@ exit
 ### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startarch.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startarch.sh \
   -O ~/startarch.sh
 chmod +x ~/startarch.sh
 ```
@@ -146,7 +146,7 @@ chmod +x ~/startarch.sh
 ### Snapdragon / Adreno (Zink + Turnip)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startarch-adreno.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startarch-adreno.sh \
   -O ~/startarch.sh
 chmod +x ~/startarch.sh
 ```

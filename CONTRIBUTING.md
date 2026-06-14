@@ -43,4 +43,4 @@ Open a GitHub Issue with:
 
 ---
 
-*Made by [_ryuZaki](https://github.com/ryuV2)*
+*Made by [Knox](https://github.com/DeadKnox)*

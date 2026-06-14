@@ -116,7 +116,7 @@ exit
 ### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startkali.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startkali.sh \
   -O ~/startkali.sh
 chmod +x ~/startkali.sh
 ```
@@ -124,7 +124,7 @@ chmod +x ~/startkali.sh
 ### Snapdragon / Adreno (Zink + Turnip)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startkali-adreno.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startkali-adreno.sh \
   -O ~/startkali.sh
 chmod +x ~/startkali.sh
 ```

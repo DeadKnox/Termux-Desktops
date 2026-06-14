@@ -25,7 +25,7 @@ exit
 
 **Fix B — Make sure you used our updated launch scripts** which use `su - YourUsername` instead of `--user`. Download the latest scripts:
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startdebian.sh -O ~/startdebian.sh
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startdebian.sh -O ~/startdebian.sh
 ```
 
 ---

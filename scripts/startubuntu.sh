@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌─────────────────────────────────────────┐
 # │  startubuntu.sh — Ubuntu 26.04 proot    │
-# │  github.com/ryuV2/Termux-Desktops       │
+# │  github.com/DeadKnox/Termux-Desktop       │
 # └─────────────────────────────────────────┘
 # Usage: bash ~/startubuntu.sh
 

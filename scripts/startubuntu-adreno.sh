@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌────────────────────────────────────────────────────┐
 # │  startubuntu-adreno.sh — Ubuntu (Snapdragon/Adreno)│
-# │  github.com/ryuV2/Termux-Desktops                  │
+# │  github.com/DeadKnox/Termux-Desktop                  │
 # └────────────────────────────────────────────────────┘
 # For Snapdragon devices with Adreno GPU (Zink + Turnip)
 # Usage: bash ~/startubuntu-adreno.sh

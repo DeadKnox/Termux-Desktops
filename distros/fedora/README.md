@@ -143,7 +143,7 @@ dnf install -y fastfetch
 ### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startfedora.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startfedora.sh \
   -O ~/startfedora.sh
 chmod +x ~/startfedora.sh
 ```
@@ -151,7 +151,7 @@ chmod +x ~/startfedora.sh
 ### Snapdragon / Adreno (Zink + Turnip)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startfedora-adreno.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startfedora-adreno.sh \
   -O ~/startfedora.sh
 chmod +x ~/startfedora.sh
 ```

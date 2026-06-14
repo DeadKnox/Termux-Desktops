@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌─────────────────────────────────────────┐
 # │  startalpine.sh — Alpine Linux proot    │
-# │  github.com/ryuV2/Termux-Desktops       │
+# │  github.com/DeadKnox/Termux-Desktop       │
 # └─────────────────────────────────────────┘
 # Mali / MediaTek / Exynos — VirGL
 # Usage: bash ~/startalpine.sh

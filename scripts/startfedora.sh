@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌─────────────────────────────────────────┐
 # │  startfedora.sh — Fedora 44 proot       │
-# │  github.com/ryuV2/Termux-Desktops       │
+# │  github.com/DeadKnox/Termux-Desktop       │
 # └─────────────────────────────────────────┘
 # Mali / MediaTek / Exynos — VirGL
 # Usage: bash ~/startfedora.sh

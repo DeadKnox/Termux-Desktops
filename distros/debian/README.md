@@ -208,7 +208,7 @@ cursor --no-sandbox
 ### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startdebian.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startdebian.sh \
   -O ~/startdebian.sh
 chmod +x ~/startdebian.sh
 ```
@@ -216,7 +216,7 @@ chmod +x ~/startdebian.sh
 ### Snapdragon / Adreno (Zink + Turnip)
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startdebian-adreno.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startdebian-adreno.sh \
   -O ~/startdebian.sh
 chmod +x ~/startdebian.sh
 ```

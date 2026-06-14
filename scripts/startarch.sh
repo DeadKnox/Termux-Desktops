@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌─────────────────────────────────────────┐
 # │  startarch.sh — Arch Linux ARM proot    │
-# │  github.com/ryuV2/Termux-Desktops       │
+# │  github.com/DeadKnox/Termux-Desktop       │
 # └─────────────────────────────────────────┘
 # Mali / MediaTek / Exynos — VirGL
 # Usage: bash ~/startarch.sh

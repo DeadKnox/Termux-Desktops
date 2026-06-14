@@ -101,7 +101,7 @@ pkg install obs -y
 > Download directly from the repo:
 
 ```bash
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startdesktop.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startdesktop.sh \
   -O ~/startdesktop.sh
 chmod +x ~/startdesktop.sh
 ```

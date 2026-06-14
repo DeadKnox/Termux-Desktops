@@ -12,11 +12,11 @@
 ### Run full Linux desktops on Android — no root required
 *Termux · proot-distro · Termux:X11 · VirGL GPU Acceleration*
 
-[![Stars](https://img.shields.io/github/stars/ryuV2/Termux-Desktops?style=flat-square&color=00ff9f&labelColor=0d0d0d)](https://github.com/ryuV2/Termux-Desktops/stargazers)
-[![Forks](https://img.shields.io/github/forks/ryuV2/Termux-Desktops?style=flat-square&color=00ff9f&labelColor=0d0d0d)](https://github.com/ryuV2/Termux-Desktops/forks)
+[![Stars](https://img.shields.io/github/stars/DeadKnox/Termux-Desktop?style=flat-square&color=00ff9f&labelColor=0d0d0d)](https://github.com/DeadKnox/Termux-Desktop/stargazers)
+[![Forks](https://img.shields.io/github/forks/DeadKnox/Termux-Desktop?style=flat-square&color=00ff9f&labelColor=0d0d0d)](https://github.com/DeadKnox/Termux-Desktop/forks)
 [![License](https://img.shields.io/badge/license-GPL--3.0-00ff9f?style=flat-square&labelColor=0d0d0d)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android-00ff9f?style=flat-square&labelColor=0d0d0d)](https://termux.dev)
-[![Maintained](https://img.shields.io/badge/maintained-yes-00ff9f?style=flat-square&labelColor=0d0d0d)](https://github.com/ryuV2/Termux-Desktops/commits/main)
+[![Maintained](https://img.shields.io/badge/maintained-yes-00ff9f?style=flat-square&labelColor=0d0d0d)](https://github.com/DeadKnox/Termux-Desktop/commits/main)
 
 </div>
 
@@ -99,7 +99,7 @@ pkg install x11-repo termux-x11-nightly proot-distro pulseaudio virglrenderer
 proot-distro install debian   # or ubuntu, kali-nethunter, etc.
 
 # 3. Download launch script (Mali/VirGL)
-wget https://raw.githubusercontent.com/ryuV2/Termux-Desktops/main/scripts/startdebian.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startdebian.sh \
   -O ~/startdebian.sh
 chmod +x ~/startdebian.sh
 
@@ -127,7 +127,7 @@ Contributions are welcome! If you've got a working setup for a distro not yet co
 
 Inspired by [LinuxDroidMaster/Termux-Desktops](https://github.com/LinuxDroidMaster/Termux-Desktops)
 
-Made with 🖤 by [_ryuZaki](https://github.com/ryuV2) · GPL-3.0
+Made with 🖤 by [Knox](https://github.com/DeadKnox) · GPL-3.0
 
 ---
 

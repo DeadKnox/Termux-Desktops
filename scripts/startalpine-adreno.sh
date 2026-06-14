@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌────────────────────────────────────────────────────────┐
 # │  startalpine-adreno.sh — Alpine Linux (Adreno/Zink)    │
-# │  github.com/ryuV2/Termux-Desktops                      │
+# │  github.com/DeadKnox/Termux-Desktop                      │
 # └────────────────────────────────────────────────────────┘
 # Snapdragon / Adreno — Zink + Turnip
 # Usage: bash ~/startalpine-adreno.sh
