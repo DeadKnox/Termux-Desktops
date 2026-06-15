@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌──────────────────────────────────────────────────────┐
 # │  startfedora-adreno.sh — Fedora 44 (Snapdragon/Adreno)│
-# │  github.com/DeadKnox/Termux-Desktop                    │
+# │  github.com/DeadKnox/Termux-Desktops                   │
 # └──────────────────────────────────────────────────────┘
 # Snapdragon / Adreno — Zink + Turnip
 # Usage: bash ~/startfedora-adreno.sh

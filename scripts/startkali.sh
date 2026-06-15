@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌─────────────────────────────────────────┐
 # │  startkali.sh — Kali Linux proot        │
-# │  github.com/DeadKnox/Termux-Desktop       │
+# │  github.com/DeadKnox/Termux-Desktops      │
 # └─────────────────────────────────────────┘
 # Usage: bash ~/startkali.sh
 

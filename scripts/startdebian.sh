@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌─────────────────────────────────────────┐
 # │  startdebian.sh — Debian Trixie proot   │
-# │  github.com/DeadKnox/Termux-Desktop       │
+# │  github.com/DeadKnox/Termux-Desktops      │
 # └─────────────────────────────────────────┘
 # Usage: bash ~/startdebian.sh
 

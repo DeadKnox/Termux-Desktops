@@ -16,8 +16,8 @@
 
 <br>
 
-[![Stars](https://img.shields.io/github/stars/DeadKnox/Termux-Desktop?style=for-the-badge&color=00ff9f&labelColor=0d0d0d&logo=github)](https://github.com/DeadKnox/Termux-Desktop/stargazers)
-[![Forks](https://img.shields.io/github/forks/DeadKnox/Termux-Desktop?style=for-the-badge&color=00ff9f&labelColor=0d0d0d&logo=git)](https://github.com/DeadKnox/Termux-Desktop/forks)
+[![Stars](https://img.shields.io/github/stars/DeadKnox/Termux-Desktopsstyle=for-the-badge&color=00ff9f&labelColor=0d0d0d&logo=github)](https://github.com/DeadKnox/Termux-Desktopsstargazers)
+[![Forks](https://img.shields.io/github/forks/DeadKnox/Termux-Desktopsstyle=for-the-badge&color=00ff9f&labelColor=0d0d0d&logo=git)](https://github.com/DeadKnox/Termux-Desktopsforks)
 [![License](https://img.shields.io/badge/LICENSE-GPL--3.0-00ff9f?style=for-the-badge&labelColor=0d0d0d)](LICENSE)
 [![Platform](https://img.shields.io/badge/PLATFORM-Android-00ff9f?style=for-the-badge&labelColor=0d0d0d&logo=android)](https://termux.dev)
 
@@ -44,7 +44,7 @@ pkg install x11-repo termux-x11-nightly proot-distro pulseaudio virglrenderer-an
 proot-distro install debian
 
 # 3. Download launch script
-wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startdebian.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktopsmain/scripts/startdebian.sh \
   -O ~/startdebian.sh && chmod +x ~/startdebian.sh
 
 # 4. Edit username & launch

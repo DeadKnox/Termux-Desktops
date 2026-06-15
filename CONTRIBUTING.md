@@ -1,4 +1,4 @@
-# 🤝 Contributing to Termux-Desktop
+# 🤝 Contributing to Termux-Desktops
 
 Thanks for wanting to help make this better!
 

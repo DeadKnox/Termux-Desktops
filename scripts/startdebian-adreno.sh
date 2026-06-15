@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌────────────────────────────────────────────────────┐
 # │  startdebian-adreno.sh — Debian (Snapdragon/Adreno)│
-# │  github.com/DeadKnox/Termux-Desktop                  │
+# │  github.com/DeadKnox/Termux-Desktops                 │
 # └────────────────────────────────────────────────────┘
 # For Snapdragon devices with Adreno GPU (Zink + Turnip)
 # Usage: bash ~/startdebian-adreno.sh

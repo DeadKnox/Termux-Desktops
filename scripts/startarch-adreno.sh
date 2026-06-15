@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ┌──────────────────────────────────────────────────────┐
 # │  startarch-adreno.sh — Arch Linux ARM (Adreno/Zink)  │
-# │  github.com/DeadKnox/Termux-Desktop                    │
+# │  github.com/DeadKnox/Termux-Desktops                   │
 # └──────────────────────────────────────────────────────┘
 # Snapdragon / Adreno — Zink + Turnip
 # Usage: bash ~/startarch-adreno.sh

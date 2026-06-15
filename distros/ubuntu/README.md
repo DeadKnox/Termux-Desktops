@@ -134,7 +134,7 @@ glxinfo | grep "OpenGL renderer"
 ### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startubuntu.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktopsmain/scripts/startubuntu.sh \
   -O ~/startubuntu.sh
 chmod +x ~/startubuntu.sh
 ```
@@ -142,7 +142,7 @@ chmod +x ~/startubuntu.sh
 ### Snapdragon / Adreno (Zink + Turnip)
 
 ```bash
-wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktop/main/scripts/startubuntu-adreno.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktopsmain/scripts/startubuntu-adreno.sh \
   -O ~/startubuntu.sh
 chmod +x ~/startubuntu.sh
 ```
