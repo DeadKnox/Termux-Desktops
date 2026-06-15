@@ -44,7 +44,7 @@ pkg install x11-repo termux-x11-nightly proot-distro pulseaudio virglrenderer-an
 proot-distro install debian
 
 # 3. Download launch script
-wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktopsmain/scripts/startdebian.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktops/main/scripts/startdebian.sh \
   -O ~/startdebian.sh && chmod +x ~/startdebian.sh
 
 # 4. Edit username & launch

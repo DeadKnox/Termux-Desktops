@@ -172,7 +172,7 @@ exit
 ### Mali / MediaTek / Exynos (VirGL)
 
 ```bash
-wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktopsmain/scripts/startalpine.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktops/main/scripts/startalpine.sh \
   -O ~/startalpine.sh
 chmod +x ~/startalpine.sh
 ```
@@ -180,7 +180,7 @@ chmod +x ~/startalpine.sh
 ### Snapdragon / Adreno (Zink + Turnip)
 
 ```bash
-wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktopsmain/scripts/startalpine-adreno.sh \
+wget https://raw.githubusercontent.com/DeadKnox/Termux-Desktops/main/scripts/startalpine-adreno.sh \
   -O ~/startalpine.sh
 chmod +x ~/startalpine.sh
 ```
